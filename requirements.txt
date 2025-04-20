@@ -1,0 +1,6 @@
+# Required packages
+
+py-trees>=2.0.0
+PyYAML>=6.0
+ur-rtde>=0.0.10
+graphviz>=0.20
