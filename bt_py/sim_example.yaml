@@ -1,0 +1,26 @@
+name: SimBT
+root: sequence_main
+
+nodes:
+  sequence_main:
+    type: Sequence
+    children: [check_connection, retry_move, move_home]
+
+  check_connection:
+    type: CheckConnection
+
+  retry_move:
+    type: Retry
+    children: [move_to_target]
+    params:
+      num_failures: 3
+
+  move_to_target:
+    type: MoveLinear
+    params:
+      pose: [0.4, 0.0, 0.2, 0.0, 3.14, 0.0]
+
+  move_home:
+    type: MoveJoint
+    params:
+      joints: [0.0, -1.57, 1.57, 0.0, 1.57, 0.0]
